@@ -21,7 +21,6 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = ''
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -58,9 +57,12 @@ REST_FRAMEWORK = {
     ),
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 10
 }
 
+AUTH_USER_MODEL = 'fedemy.User'
 ROOT_URLCONF = 'fedemyShipments.urls'
 
 SIMPLE_JWT = {
@@ -106,10 +108,10 @@ WSGI_APPLICATION = 'fedemyShipments.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'NAME': 'd6bo2l8ge5u606',
+        'USER': 'bugnkhsqfzhbcm',
+        'PASSWORD': 'c189f85588a063581548a38a3f853ce91832926524f5e126a384c1ac676bbb19',
+        'HOST': 'ec2-44-209-158-64.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
