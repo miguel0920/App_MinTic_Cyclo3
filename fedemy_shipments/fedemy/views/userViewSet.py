@@ -1,14 +1,20 @@
 from tkinter.messagebox import NO
 from unicodedata import name
 from webbrowser import get
-from rest_framework import viewsets, status
-from rest_framework.decorators import action
+
+# Permissions
+from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
+from rest_framework.decorators import action
+from rest_framework import viewsets, status
 
 from fedemy.models.user import User
 from fedemy.serializers.userSerializer import UserSerializer
+from fedemy.serializers.userSerializer import UserLoginSerializer
 
 class UserViewSet(viewsets.ViewSet):
+    permission_classes = [IsAuthenticated] 
+
     """
     A viewset that provides the standard actions
     """
@@ -31,3 +37,22 @@ class UserViewSet(viewsets.ViewSet):
         recent_users = User.objects.all()
         serializer = UserSerializer(recent_users, many=True)
         return Response(serializer.data)
+
+    @action(detail=False, methods=['post'])
+    def login(self, request):
+        """User sign in."""
+        serializer = UserLoginSerializer(data=request.data)
+        serializer.is_valid(raise_exception=True)
+
+        if serializer.is_valid(raise_exception=True):
+            user, token = serializer.save()
+            data = {
+                'user': UserLoginSerializer(user).data,
+                'access_token': token
+            }
+            return Response(data, status=status.HTTP_201_CREATED)
+        else:
+            return Response(serializer.errors,
+                            status=status.HTTP_401_UNAUTHORIZED)
+
+        
