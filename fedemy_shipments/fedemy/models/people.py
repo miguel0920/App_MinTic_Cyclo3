@@ -4,6 +4,7 @@ from .modelbase import ModelBase
 
 class People(ModelBase):
     """People model."""
+    personId = models.BigAutoField(primary_key=True)
     personFirstName = models.CharField(max_length=50)
     personSecondName = models.CharField(max_length=50)
     personLastName = models.CharField(max_length=50)

@@ -4,6 +4,7 @@ from .modelbase import ModelBase
 
 class PackageTypes(ModelBase):
     """PackageTypes model."""
+    packageTypeId = models.BigAutoField(primary_key=True)
     packageTypeName = models.CharField(max_length=50)
 
     class Meta:

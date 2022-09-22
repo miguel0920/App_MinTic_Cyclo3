@@ -4,9 +4,10 @@ from .modelbase import ModelBase
 
 class Companies(ModelBase):
     """Companies model."""
-    companyName = models.CharField(max_length=50)
-    companyAddress = models.CharField(max_length=50)
-    companyPhone = models.CharField(max_length=50)
+    companyid = models.BigAutoField(primary_key=True)
+    companyname = models.CharField(max_length=50)
+    companyaddress = models.CharField(max_length=50)
+    companyphone = models.CharField(max_length=50)
 
     class Meta:
         db_table = "companies"

@@ -1,2 +1,3 @@
 from .userSerializer import UserSerializer
 from .userSerializer import UserLoginSerializer
+from .packagesSerializer import PackagesSerializer
