@@ -1,20 +1,30 @@
 # Django REST Framework
 from rest_framework import serializers
-from fedemy.models import packages
 
 # Models
 from fedemy.models.packages import Packages
+from fedemy.models.packagetypes import PackageTypes
+from fedemy.models.usercompanies import UserCompanies
+
+# Serializer
+from fedemy.serializers.userCompaniesSerializer import UserCompaniesSerializer
+
 
 class PackagesSerializer(serializers.ModelSerializer):
+    usercompanyid = serializers.SlugRelatedField(
+        queryset=UserCompanies.objects.all(), slug_field='usercompanyid')
+    packagetypeid = serializers.SlugRelatedField(
+        queryset=PackageTypes.objects.all(), slug_field='packagetypeid')
+
     class Meta:
         model = Packages
-        fields = '__all__'
+        fields = ['packageid', 'usercompanyid', 'packagetypeid', 'packagedescription',
+                  'packagetitle', 'packageprice', 'packagequantity', 'createdatetime', 'isactive']
 
     def create(self, validated_data):
-        print('😁😁',validated_data)
-        userInstance = Packages.objects.create(**validated_data)
-        return userInstance
+        packageInstance = Packages.objects.create(**validated_data)
+        return packageInstance
 
-    def getUsers():
+    def getPackages():
         users = Packages.objects.all()
         return users

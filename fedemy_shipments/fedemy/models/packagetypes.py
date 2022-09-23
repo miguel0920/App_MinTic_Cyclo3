@@ -4,8 +4,8 @@ from .modelbase import ModelBase
 
 class PackageTypes(ModelBase):
     """PackageTypes model."""
-    packageTypeId = models.BigAutoField(primary_key=True)
-    packageTypeName = models.CharField(max_length=50)
+    packagetypeid = models.IntegerField(primary_key=True, db_column='packagetypeid')
+    packagetypename = models.CharField(max_length=50, db_column='packagetypename')
 
     class Meta:
         db_table = "packagetypes"
