@@ -17,6 +17,7 @@ Including another URLconf
 from django.urls import path, include
 from rest_framework import routers
 from fedemy.views.userViewSet import UserViewSet
+from fedemy.views.packageViewSet import PackageViewSet
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
     TokenRefreshView,
@@ -25,6 +26,7 @@ from rest_framework_simplejwt.views import (
 # Routers provide an easy way of automatically determining the URL conf.
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
+router.register(r'packages', PackageViewSet)
 
 # Wire up our API using automatic URL routing.
 # Additionally, we include login URLs for the browsable API.
