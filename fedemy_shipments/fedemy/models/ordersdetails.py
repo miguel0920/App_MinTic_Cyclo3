@@ -4,13 +4,17 @@ from .modelbase import ModelBase
 from fedemy.models.packages import Packages
 from fedemy.models.orders import Orders
 
+
 class OrdersDetails(ModelBase):
     """OrdersDetails model."""
-    orderDetailId = models.BigAutoField(primary_key=True)
-    packageId = models.ForeignKey(Packages, on_delete=models.DO_NOTHING, related_name='packageid_ordersdetails_set')
-    orderId = models.ForeignKey(Orders, on_delete=models.DO_NOTHING, related_name='orderid_ordersdetails_set')
-    orderDetailQuantity = models.IntegerField()
-    orderDetailPrice = models.DecimalField(max_digits=11, decimal_places=2)
+    orderdetailid = models.IntegerField(
+        primary_key=True, db_column='orderdetailid')
+    packageid = models.ForeignKey(
+        Packages, on_delete=models.DO_NOTHING, related_name='packageid_ordersdetails_set', db_column='packageid')
+    orderid = models.ForeignKey(
+        Orders, on_delete=models.DO_NOTHING, related_name='orderid_ordersdetails_set', db_column='orderid')
+    orderdetailquantity = models.IntegerField(db_column='orderdetailquantity')
+    orderdetailprice = models.DecimalField(max_digits=11, decimal_places=2, db_column='orderdetailprice')
 
     class Meta:
         db_table = "ordersdetails"

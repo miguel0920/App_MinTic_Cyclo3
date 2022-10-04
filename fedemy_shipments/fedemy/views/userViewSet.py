@@ -6,23 +6,36 @@ from webbrowser import get
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.decorators import action
-from rest_framework import viewsets, status
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework import (
+    permissions, 
+    parsers, 
+    throttling, 
+    renderers,
+)
+from rest_framework.decorators import (
+    api_view, 
+    permission_classes, 
+    parser_classes, 
+    throttle_classes, 
+    renderer_classes,
+)
 
 from fedemy.models.user import User
 from fedemy.serializers.userSerializer import UserSerializer
 from fedemy.serializers.userSerializer import UserLoginSerializer
 
-class UserViewSet(viewsets.ViewSet):
+class UserViewSet(APIView):
     permission_classes = [IsAuthenticated] 
-
-    """
-    A viewset that provides the standard actions
-    """
 
     queryset = User.objects.all()
     serializer_class = UserSerializer
 
-    @action(detail=True, methods=['post'], name='Create user')
+    @api_view(['POST'])
+    @parser_classes([parsers.JSONParser])
+    @throttle_classes([throttling.UserRateThrottle])
+    @renderer_classes([renderers.JSONRenderer])
     def create_user(self, request, pk=None):
         serializer = UserSerializer(data=request.data)
         if serializer.is_valid():
@@ -32,13 +45,20 @@ class UserViewSet(viewsets.ViewSet):
             return Response(serializer.errors,
                             status=status.HTTP_400_BAD_REQUEST)
 
-    @action(detail=True, methods=['get'], name='Get Users')
-    def users(self, request, pk=None):
+    @api_view(['GET'])
+    @parser_classes([parsers.JSONParser])
+    @throttle_classes([throttling.UserRateThrottle])
+    @renderer_classes([renderers.JSONRenderer])
+    def getusers(self, request, pk=None):
         recent_users = User.objects.all()
         serializer = UserSerializer(recent_users, many=True)
         return Response(serializer.data)
 
-    @action(detail=False, methods=['post'])
+
+    @api_view(['POST'])
+    @parser_classes([parsers.JSONParser])
+    @throttle_classes([throttling.UserRateThrottle])
+    @renderer_classes([renderers.JSONRenderer])
     def login(self, request):
         """User sign in."""
         serializer = UserLoginSerializer(data=request.data)

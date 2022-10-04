@@ -2,10 +2,13 @@ from django.db import models
 
 from .modelbase import ModelBase
 
+
 class StatesOrders(ModelBase):
     """StatesOrders model."""
-    stateOrderId = models.BigAutoField(primary_key=True)
-    stateOrderName = models.CharField(max_length=50)
+    stateorderid = models.IntegerField(
+        primary_key=True, db_column='stateorderid')
+    stateordername = models.CharField(
+        max_length=50, db_column='stateordername')
 
     class Meta:
         db_table = "statesorders"

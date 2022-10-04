@@ -1,28 +1,34 @@
-from tkinter.messagebox import NO
-from unicodedata import name
-from webbrowser import get
-
 # Permissions
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
-from rest_framework.decorators import action
-from rest_framework import viewsets, status
-
+from rest_framework import status
+from rest_framework.views import APIView
+from rest_framework.decorators import (
+    api_view, 
+    permission_classes, 
+    parser_classes, 
+    throttle_classes, 
+    renderer_classes,
+)
+from rest_framework import (
+    permissions, 
+    parsers, 
+    throttling, 
+    renderers,
+)
 from fedemy.models.packages import Packages
 from fedemy.serializers.packagesSerializer import PackagesSerializer
 
-class PackageViewSet(viewsets.ViewSet):
-    permission_classes = [IsAuthenticated] 
-
-    """
-    A viewset that provides the standard actions
-    """
-
+class PackageViewSet(APIView):
     queryset = Packages.objects.all()
     serializer_class = PackagesSerializer
 
-    @action(detail=True, methods=['post'], name='Create package')
-    def create_package(self, request, pk=None):
+    @api_view(['POST'])
+    @permission_classes([permissions.IsAuthenticated])
+    @parser_classes([parsers.JSONParser])
+    @throttle_classes([throttling.UserRateThrottle])
+    @renderer_classes([renderers.JSONRenderer])
+    def create_package(self, request, format=None):
         serializer = PackagesSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
