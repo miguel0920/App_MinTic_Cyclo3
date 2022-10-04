@@ -30,34 +30,16 @@ Set-PSRepository -Name 'PSGallery' -InstallationPolicy Trusted
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
 ```
 
-When listing the policies the localmachine must be in AllSigned
+When listing the policies the localmachine must be in "AllSigned"
 
 ```powershell
 Get-ExecutionPolicy -List
 ```
 
-### Install django
+### Install packages
 
 ```bash
-pip install django
-```
-
-### Install djangorestframework
-
-```bash
-pip install djangorestframework
-```
-
-### Install djangorestframework-simplejwt
-
-```bash
-pip install djangorestframework-simplejwt
-```
-
-### Install psycopg2
-
-```bash
-pip install psycopg2
+pip install -r requirements.txt
 ```
 
 ### Run project

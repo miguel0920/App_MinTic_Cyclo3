@@ -2,16 +2,23 @@ from django.db import models
 
 from .modelbase import ModelBase
 
+
 class People(ModelBase):
     """People model."""
-    personId = models.BigAutoField(primary_key=True)
-    personFirstName = models.CharField(max_length=50)
-    personSecondName = models.CharField(max_length=50)
-    personLastName = models.CharField(max_length=50)
-    personSecondLastName = models.CharField(max_length=50)
-    personAddress = models.CharField(max_length=50)
-    personPhone = models.CharField(max_length=50)
-    personEmail = models.CharField(max_length=50)
+    personid = models.IntegerField(primary_key=True, db_column='personid')
+    personfirstname = models.CharField(
+        max_length=50, db_column='personfirstname')
+    personsecondname = models.CharField(
+        max_length=50, null=True, db_column='personsecondname')
+    personlastname = models.CharField(
+        max_length=50, db_column='personlastname')
+    personsecondlastname = models.CharField(
+        max_length=50, db_column='personsecondlastname')
+    personaddress = models.CharField(max_length=50, db_column='personaddress')
+    personphone = models.CharField(max_length=50, db_column='personphone')
+    personemail = models.CharField(max_length=50, db_column='personemail')
+    persondocumentnumber = models.CharField(
+        max_length=50, db_column='persondocumentnumber')
 
     class Meta:
         db_table = "people"
