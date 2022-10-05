@@ -132,7 +132,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTg1NjUyLCJpYXQiOjE2NjM4OTkyNTIsImp0aSI6ImRiOTIwZGM1NWI4NTQxZjU5ODhkYTgyNzAyNWUyODM1IiwidXNlcl9pZCI6M30.NHXBFxzbBPeEqxWzWW4FTta4sT_LH8WQJW-0FekrlCI",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDE5MjM1LCJpYXQiOjE2NjQ5MzI4MzUsImp0aSI6ImNhY2UxNzkzZmVhYTQ1ZWU4ZmVmNjljNGVhZTM0ODk0IiwidXNlcl9pZCI6M30.FHH1Ln4zDhCw07LrElVmjVu2kg6RLlWnwM_FUEYBGnc",
 							"type": "string"
 						}
 					]
@@ -141,7 +141,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"packageid\": 1,\r\n    \"usercompanyid\": 1,\r\n    \"packagetypeid\": 1,\r\n    \"packagedescription\": \"CARGADOR COMPLETO COMPATIBILIDAD PARA... IPHONE 11\",\r\n    \"packagetitle\": \"Cargador Para iPhone 11/12/pro 18w Carga Rapida\",\r\n    \"packageprice\": 33000,\r\n    \"packagequantity\": 2,\r\n    \"createdatetime\": \"2022-09-21\",\r\n    \"isactive\": true\r\n}",
+					"raw": "{\r\n    \"packageid\": 3,\r\n    \"usercompanyid\": 1,\r\n    \"packagetypeid\": 2,\r\n    \"packagedescription\": \"Mouse inalambrico\",\r\n    \"packageprice\": 10000,\r\n    \"packagequantity\": 1,\r\n    \"createdatetime\": \"2022-10-04\",\r\n    \"isactive\": true\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -184,7 +184,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"persondocumentnumber\":\"646464\"\r\n}",
+					"raw": "{\r\n    \"personsecondname\":null\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -205,6 +205,74 @@
 						"api",
 						"people",
 						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDE5MjM1LCJpYXQiOjE2NjQ5MzI4MzUsImp0aSI6ImNhY2UxNzkzZmVhYTQ1ZWU4ZmVmNjljNGVhZTM0ODk0IiwidXNlcl9pZCI6M30.FHH1Ln4zDhCw07LrElVmjVu2kg6RLlWnwM_FUEYBGnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/people/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"people",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Lista de personas",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDE5MjM1LCJpYXQiOjE2NjQ5MzI4MzUsImp0aSI6ImNhY2UxNzkzZmVhYTQ1ZWU4ZmVmNjljNGVhZTM0ODk0IiwidXNlcl9pZCI6M30.FHH1Ln4zDhCw07LrElVmjVu2kg6RLlWnwM_FUEYBGnc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/people/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"people",
+						""
 					]
 				}
 			},
