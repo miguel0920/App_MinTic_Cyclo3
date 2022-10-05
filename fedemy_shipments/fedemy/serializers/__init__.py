@@ -2,3 +2,4 @@ from .userSerializer import UserSerializer
 from .userSerializer import UserLoginSerializer
 from .packagesSerializer import PackagesSerializer
 from .userCompaniesSerializer import UserCompaniesSerializer
+from .peopleSerializer import PeopleSerializer

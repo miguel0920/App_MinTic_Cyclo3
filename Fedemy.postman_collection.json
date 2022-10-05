@@ -1,0 +1,214 @@
+{
+	"info": {
+		"_postman_id": "c31a5d67-2054-41f6-92b8-5f19e9b510f5",
+		"name": "Fedemy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "8466783"
+	},
+	"item": [
+		{
+			"name": "Get Users",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0NTg4NDQ0LCJpYXQiOjE2NjQ1MDIwNDQsImp0aSI6ImIzNWY0NzVkOGFmNTRiNDViNTBmOWRjMzAxNzkxNTVjIiwidXNlcl9pZCI6M30.WaEMVPSKg9rB84BUegQ43HRBnNAzGA53lLo_rMkc910",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNzE5MDEwLCJpYXQiOjE2NjM2MzI2MTAsImp0aSI6IjVlZWJhZjBiOWMwZjRhZDZhZDY2YzU1MzM5NjdhOWQyIiwidXNlcl9pZCI6M30.vq0JGy2uxoHdEEx22gKKXNCT0C7y1NrvUxK0H_LtwCs",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/users/users",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"users",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create user",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNzE5NzAzLCJpYXQiOjE2NjM2MzMzMDMsImp0aSI6IjE2NWFjZWQzZDg3YzQ4Njc4NzY3YjY4NjdlMjYwZjdlIiwidXNlcl9pZCI6M30.GHTEP27KFJwBqdiBGtUhaqhOnAIEQVc0sfVS993O0eY",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123456789\",\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/users/pk/create_user/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"users",
+						"pk",
+						"create_user",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123456789\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/token/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"token",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create package",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzOTg1NjUyLCJpYXQiOjE2NjM4OTkyNTIsImp0aSI6ImRiOTIwZGM1NWI4NTQxZjU5ODhkYTgyNzAyNWUyODM1IiwidXNlcl9pZCI6M30.NHXBFxzbBPeEqxWzWW4FTta4sT_LH8WQJW-0FekrlCI",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"packageid\": 1,\r\n    \"usercompanyid\": 1,\r\n    \"packagetypeid\": 1,\r\n    \"packagedescription\": \"CARGADOR COMPLETO COMPATIBILIDAD PARA... IPHONE 11\",\r\n    \"packagetitle\": \"Cargador Para iPhone 11/12/pro 18w Carga Rapida\",\r\n    \"packageprice\": 33000,\r\n    \"packagequantity\": 2,\r\n    \"createdatetime\": \"2022-09-21\",\r\n    \"isactive\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/packages/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"packages",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0OTM5NDYxLCJpYXQiOjE2NjQ4NTMwNjEsImp0aSI6ImFkNjRkMzdiODIxYTQ5MDFiZWEwNjBkMDhmZDhiNTUwIiwidXNlcl9pZCI6M30.6HTez3P7eGgxKqJCpqFcs8WO9RCuLFbrwGqqPdB017c",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"persondocumentnumber\":\"646464\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/people/1",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"people",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -14,8 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 
-from fedemy.views import UserViewSet, PackageViewSet
-from django.urls import path, include
+from fedemy.views import UserViewSet, PackageViewSet, PeopleViewSet
+from django.urls import path, include, re_path
 from rest_framework import routers
 from rest_framework_simplejwt.views import (
     TokenObtainPairView,
@@ -29,7 +29,9 @@ router = routers.DefaultRouter()
 # Additionally, we include login URLs for the browsable API.
 urlpatterns = [
     path('', include(router.urls)),
-    path('api/users/', UserViewSet.as_view(), name='user'),
+    path('api/users/', UserViewSet.as_view(), name='users'),
+    path('api/people/', PeopleViewSet.as_view(), name='people'),
+    path('api/people/<int:pk>', PeopleViewSet.as_view(), name='people'),
     path('api/packages/', PackageViewSet.as_view(), name='packages'),
     path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh')
