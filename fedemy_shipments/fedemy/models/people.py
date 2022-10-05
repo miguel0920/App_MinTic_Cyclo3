@@ -12,8 +12,8 @@ class People(ModelBase):
         max_length=50, null=True, db_column='personsecondname')
     personlastname = models.CharField(
         max_length=50, db_column='personlastname')
-    personsecondlastname = models.CharField(
-        max_length=50, db_column='personsecondlastname')
+    personrsecondlastname = models.CharField(
+        max_length=50, db_column='personrsecondlastname')
     personaddress = models.CharField(max_length=50, db_column='personaddress')
     personphone = models.CharField(max_length=50, db_column='personphone')
     personemail = models.CharField(max_length=50, db_column='personemail')

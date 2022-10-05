@@ -6,9 +6,6 @@ from fedemy.models.packages import Packages
 from fedemy.models.packagetypes import PackageTypes
 from fedemy.models.usercompanies import UserCompanies
 
-# Serializer
-from fedemy.serializers.userCompaniesSerializer import UserCompaniesSerializer
-
 
 class PackagesSerializer(serializers.ModelSerializer):
     usercompanyid = serializers.SlugRelatedField(
@@ -19,7 +16,7 @@ class PackagesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Packages
         fields = ['packageid', 'usercompanyid', 'packagetypeid', 'packagedescription',
-                  'packagetitle', 'packageprice', 'packagequantity', 'createdatetime', 'isactive']
+                  'packageprice', 'packagequantity', 'createdatetime', 'isactive']
 
     def create(self, validated_data):
         packageInstance = Packages.objects.create(**validated_data)

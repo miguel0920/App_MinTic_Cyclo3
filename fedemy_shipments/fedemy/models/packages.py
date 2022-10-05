@@ -16,7 +16,6 @@ class Packages(ModelBase):
         db_column='packagetypeid')
     packagedescription = models.CharField(
         max_length=50, db_column='packagedescription')
-    packagetitle = models.CharField(max_length=50, db_column='packagetitle')
     packageprice = models.DecimalField(
         max_digits=11, decimal_places=2, db_column='packageprice')
     packagequantity = models.IntegerField(db_column='packagequantity')
