@@ -175,7 +175,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY0OTM5NDYxLCJpYXQiOjE2NjQ4NTMwNjEsImp0aSI6ImFkNjRkMzdiODIxYTQ5MDFiZWEwNjBkMDhmZDhiNTUwIiwidXNlcl9pZCI6M30.6HTez3P7eGgxKqJCpqFcs8WO9RCuLFbrwGqqPdB017c",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDk5OTg1LCJpYXQiOjE2NjUwMTM1ODUsImp0aSI6IjYzNWViZjhlYWE3NTQwMjM5OWVlZmYyNWMwODkzZjM3IiwidXNlcl9pZCI6M30.DlOJFswf_k8T-xojBFK7x8-mOWdRTBYQpjop4ZSp_U0",
 							"type": "string"
 						}
 					]
@@ -184,7 +184,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"personsecondname\":null\r\n}",
+					"raw": "{\r\n    \"personsecondname\": \"pedraza\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -252,7 +252,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDE5MjM1LCJpYXQiOjE2NjQ5MzI4MzUsImp0aSI6ImNhY2UxNzkzZmVhYTQ1ZWU4ZmVmNjljNGVhZTM0ODk0IiwidXNlcl9pZCI6M30.FHH1Ln4zDhCw07LrElVmjVu2kg6RLlWnwM_FUEYBGnc",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MTA3OTYyLCJpYXQiOjE2NjUwMjE1NjIsImp0aSI6IjcwOGIyZmUxZjIwZTRhMjVhMjI4NmYzNmEzNDAxY2JlIiwidXNlcl9pZCI6M30.t1lSOCaEPuY8-rDJ18d1kFQALic57CzZppPjI1jAff8",
 							"type": "string"
 						}
 					]
@@ -260,7 +260,52 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/people/",
+					"raw": "http://127.0.0.1:8000/api/people",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"people"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by id person",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDk5ODA0LCJpYXQiOjE2NjUwMTM0MDQsImp0aSI6ImFmMjJiNWM1ZmY0MDRmYTI4ODc4YTUxYTc1ZDNlMmMzIiwidXNlcl9pZCI6M30.NtFiGqKjNoFqgkiKUD6lvRjdKfGN27ZFlEZyjzBi9l8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/people/1",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -272,7 +317,46 @@
 					"path": [
 						"api",
 						"people",
-						""
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get by document number by person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDk5OTg1LCJpYXQiOjE2NjUwMTM1ODUsImp0aSI6IjYzNWViZjhlYWE3NTQwMjM5OWVlZmYyNWMwODkzZjM3IiwidXNlcl9pZCI6M30.DlOJFswf_k8T-xojBFK7x8-mOWdRTBYQpjop4ZSp_U0",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/person?persondocumentnumber=1646464",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"person"
+					],
+					"query": [
+						{
+							"key": "persondocumentnumber",
+							"value": "1646464"
+						}
 					]
 				}
 			},
