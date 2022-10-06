@@ -9,7 +9,7 @@ class PeopleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = People
-        fields = '__all__'
+        exclude = ['createdatetime', 'updatedatetime', 'isactive']
 
     def update(self, instance, validated_data):
         personInstance = People.objects.update(**validated_data)
