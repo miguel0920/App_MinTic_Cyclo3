@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-=-%stz=5bdlz@=prz6y839ymlr^*x-6ous2r&n1#o&0c500io*
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
 
 # Application definition
@@ -52,7 +52,7 @@ MIDDLEWARE = [
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'django.middleware.security.SecurityMiddleware'
+    'django.middleware.security.SecurityMiddleware',
 ]
 
 CORS_ORIGIN_ALLOW_ALL = True
@@ -61,7 +61,7 @@ CORS_ALLOWED_ORIGINS = [
     "http://localhost:8080",
     "http://192.168.80.13:8080",
     "https://localhost:8080",
-    "https://192.168.80.13:8080",
+    "https://192.168.80.13:8080"
 ]
 
 REST_FRAMEWORK = {
@@ -121,10 +121,10 @@ WSGI_APPLICATION = 'fedemyShipments.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd6bo2l8ge5u606',
-        'USER': 'bugnkhsqfzhbcm',
-        'PASSWORD': 'c189f85588a063581548a38a3f853ce91832926524f5e126a384c1ac676bbb19',
-        'HOST': 'ec2-44-209-158-64.compute-1.amazonaws.com',
+        'NAME': 'd4nd356kgv0a6',
+        'USER': 'kctchryivvbnhj',
+        'PASSWORD': 'c4af2f5a6960c04c228d877b621f6054cb5c0ff23a7dedd41c91ac0e1d06564d',
+        'HOST': 'ec2-18-215-41-121.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }

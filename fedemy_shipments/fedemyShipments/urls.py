@@ -30,6 +30,7 @@ router = routers.DefaultRouter()
 urlpatterns = [
     path('', include(router.urls)),
     path('api/users/', UserViewSet.as_view(), name='users'),
+    path('api/users/create_user', UserViewSet.as_view(), name='users'),
     path('api/people/', PeopleViewSet.as_view(), name='people'),
     path('api/people/<int:pk>/', PeopleViewSetDetail.as_view(), name='people'),
     re_path('api/person/', PeopleListViewSet.as_view(), name='person'),
