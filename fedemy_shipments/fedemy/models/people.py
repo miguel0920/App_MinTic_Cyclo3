@@ -5,7 +5,7 @@ from .modelbase import ModelBase
 
 class People(ModelBase):
     """People model."""
-    personid = models.IntegerField(primary_key=True, db_column='personid')
+    personid = models.AutoField(primary_key=True, db_column='personid')
     personfirstname = models.CharField(
         max_length=50, db_column='personfirstname')
     personsecondname = models.CharField(

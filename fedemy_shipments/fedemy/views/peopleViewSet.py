@@ -13,20 +13,24 @@ import datetime
 
 from rest_framework import pagination
 
-class CustomPagination(pagination.PageNumberPagination): #check pagination, Example: https://medium.com/@fk26541598fk/django-rest-framework-apiview-implementation-pagination-mixin-c00c34da8ac2
+
+# check pagination, Example: https://medium.com/@fk26541598fk/django-rest-framework-apiview-implementation-pagination-mixin-c00c34da8ac2
+class CustomPagination(pagination.PageNumberPagination):
     page_size = 2
     page_size_query_param = 'page_size'
     max_page_size = 50
     page_query_param = 'p'
 
+
 class PeopleViewSet(APIView, CustomPagination):
-    pagination_class = CustomPagination #check pagination
+    pagination_class = CustomPagination  # check pagination
 
     def get(self, request):
         objects = People.objects.filter(
             isactive=True).order_by('-createdatetime')
         serializer = PeopleSerializer(objects, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class PeopleViewSetDetail(APIView):
     permission_classes = [IsAuthenticated]
@@ -40,13 +44,13 @@ class PeopleViewSetDetail(APIView):
         except People.DoesNotExist:
             raise Http404
 
-    def get(self, request, pk, format=None):
-        post = self.get_object(pk)
-        if post.isactive:
-            serializer = PeopleSerializer(post)
-            return Response(serializer.data)
-        else:
-            return Response({}, status=status.HTTP_204_NO_CONTENT)
+    # def get(self, request, pk, format=None):
+    #     post = self.get_object(pk)
+    #     if post.isactive:
+    #         serializer = PeopleSerializer(post)
+    #         return Response(serializer.data)
+    #     else:
+    #         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
     def patch(self, request, pk, format=None):
         pk = self.get_object(pk)

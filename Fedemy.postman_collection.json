@@ -51,20 +51,13 @@
 			"name": "Create user",
 			"request": {
 				"auth": {
-					"type": "bearer",
-					"bearer": [
-						{
-							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYzNzE5NzAzLCJpYXQiOjE2NjM2MzMzMDMsImp0aSI6IjE2NWFjZWQzZDg3YzQ4Njc4NzY3YjY4NjdlMjYwZjdlIiwidXNlcl9pZCI6M30.GHTEP27KFJwBqdiBGtUhaqhOnAIEQVc0sfVS993O0eY",
-							"type": "string"
-						}
-					]
+					"type": "noauth"
 				},
 				"method": "POST",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123456789\",\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"12345\",\r\n    \"name\": \"Admin\",\r\n    \"email\": \"admin@gmail.com\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -72,7 +65,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/users/pk/create_user/",
+					"raw": "http://127.0.0.1:8000/api/users/",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -82,9 +75,8 @@
 					],
 					"port": "8000",
 					"path": [
+						"api",
 						"users",
-						"pk",
-						"create_user",
 						""
 					]
 				}
@@ -98,7 +90,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"123456789\"\r\n}",
+					"raw": "{\r\n    \"username\": \"admin\",\r\n    \"password\": \"12345\"\r\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -246,19 +238,26 @@
 		},
 		{
 			"name": "Lista de personas",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
 			"request": {
 				"auth": {
 					"type": "bearer",
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MTA3OTYyLCJpYXQiOjE2NjUwMjE1NjIsImp0aSI6IjcwOGIyZmUxZjIwZTRhMjVhMjI4NmYzNmEzNDAxY2JlIiwidXNlcl9pZCI6M30.t1lSOCaEPuY8-rDJ18d1kFQALic57CzZppPjI1jAff8",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1NTQ0NDQ3LCJpYXQiOjE2NjU0NTgwNDcsImp0aSI6ImZiMmNlYmRjZTcwMjQ3MmY5MTUzYjgyYzgzMTRhMmY0IiwidXNlcl9pZCI6MX0.H9oEOFQ5sAS9d57VWoG0GAK9YY1N5F3OZlhRU3I4TSI",
 							"type": "string"
 						}
 					]
 				},
 				"method": "GET",
 				"header": [],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": []
+				},
 				"url": {
 					"raw": "http://127.0.0.1:8000/api/people",
 					"protocol": "http",
@@ -288,7 +287,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDk5ODA0LCJpYXQiOjE2NjUwMTM0MDQsImp0aSI6ImFmMjJiNWM1ZmY0MDRmYTI4ODc4YTUxYTc1ZDNlMmMzIiwidXNlcl9pZCI6M30.NtFiGqKjNoFqgkiKUD6lvRjdKfGN27ZFlEZyjzBi9l8",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1NzE4ODY3LCJpYXQiOjE2NjU2MzI0NjcsImp0aSI6ImJkMGU1MWU2MmM3NzRkZjViZWRhOGIxNWEwYTQwYjAzIiwidXNlcl9pZCI6MX0.X9G0nrt40B-N2FnjMFu_DzuqLIcAxgqAuzZnfJLF-08",
 							"type": "string"
 						}
 					]
@@ -305,7 +304,7 @@
 					}
 				},
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/people/1",
+					"raw": "http://127.0.0.1:8000/api/person?personid=0",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -316,8 +315,13 @@
 					"port": "8000",
 					"path": [
 						"api",
-						"people",
-						"1"
+						"person"
+					],
+					"query": [
+						{
+							"key": "personid",
+							"value": "0"
+						}
 					]
 				}
 			},
@@ -331,7 +335,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1MDk5OTg1LCJpYXQiOjE2NjUwMTM1ODUsImp0aSI6IjYzNWViZjhlYWE3NTQwMjM5OWVlZmYyNWMwODkzZjM3IiwidXNlcl9pZCI6M30.DlOJFswf_k8T-xojBFK7x8-mOWdRTBYQpjop4ZSp_U0",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1NzE4ODY3LCJpYXQiOjE2NjU2MzI0NjcsImp0aSI6ImJkMGU1MWU2MmM3NzRkZjViZWRhOGIxNWEwYTQwYjAzIiwidXNlcl9pZCI6MX0.X9G0nrt40B-N2FnjMFu_DzuqLIcAxgqAuzZnfJLF-08",
 							"type": "string"
 						}
 					]
@@ -339,7 +343,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:8000/api/person?persondocumentnumber=1646464",
+					"raw": "http://127.0.0.1:8000/api/person?persondocumentnumber=10124597",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -355,8 +359,51 @@
 					"query": [
 						{
 							"key": "persondocumentnumber",
-							"value": "1646464"
+							"value": "10124597"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create person",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjY1NjMyODQ4LCJpYXQiOjE2NjU1NDY0NDgsImp0aSI6IjM2ZGEzNzBjMmYxNjQ0YWRhYjMwOWE5OTA0YzA0MTFhIiwidXNlcl9pZCI6MX0.p4AWHPVNHGzfdbzHBju20XUOb0aNZ1rn9TebSaV7Kls",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"personfirstname\": \"Andres\",\r\n    \"personsecondname\": null,\r\n    \"personlastname\": \"Cordoba\",\r\n    \"personrsecondlastname\": \"Cardenas\",\r\n    \"personaddress\": \"Carrera siempre viva 1\",\r\n    \"personphone\": \"3115819998\",\r\n    \"personemail\": \"andre1234@yahoo.com\",\r\n    \"persondocumentnumber\": \"52208987\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://127.0.0.1:8000/api/person/",
+					"protocol": "http",
+					"host": [
+						"127",
+						"0",
+						"0",
+						"1"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"person",
+						""
 					]
 				}
 			},
