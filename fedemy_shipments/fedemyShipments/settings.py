@@ -119,10 +119,10 @@ WSGI_APPLICATION = 'fedemyShipments.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'd4nd356kgv0a6',
-        'USER': 'kctchryivvbnhj',
-        'PASSWORD': 'c4af2f5a6960c04c228d877b621f6054cb5c0ff23a7dedd41c91ac0e1d06564d',
-        'HOST': 'ec2-18-215-41-121.compute-1.amazonaws.com',
+        'NAME': 'dac5hekke33h8k',
+        'USER': 'pusvfhanbdhehj',
+        'PASSWORD': '46903e855d35c6f7ae854bdc92f4429b96ae8d06bfd1252e1aba14e047992fcd',
+        'HOST': 'ec2-54-173-237-110.compute-1.amazonaws.com',
         'PORT': '5432',
     }
 }
