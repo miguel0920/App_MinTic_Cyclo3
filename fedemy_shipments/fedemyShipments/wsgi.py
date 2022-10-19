@@ -15,4 +15,5 @@ from whitenoise import DjangoWhiteNoise
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'fedemyShipments.settings')
 
 application = get_wsgi_application()
-application = DjangoWhiteNoise(application)
+application = DjangoWhiteNoise(application, root="/path/to/static/files")
+application.add_files("/path/to/more/static/files", prefix="more-files/")
