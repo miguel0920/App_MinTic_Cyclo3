@@ -30,6 +30,7 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 CORS_ALLOW_ALL_ORIGINS = True
+# CORS_ALLOW_CREDENTIALS = True
 
 # Application definition
 
@@ -58,13 +59,13 @@ MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
 ]
 
-CORS_ORIGIN_ALLOW_ALL = True
+# CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ALLOWED_ORIGINS = ["http://localhost:8080",
-                        "http://192.168.80.13:8080",
-                        "https://localhost:8080",
-                        "https://192.168.80.13:8080",
-                        "https://181.59.2.191:8080"]
+# CORS_ALLOWED_ORIGINS = ["http://localhost:8080",
+#                         "http://192.168.80.13:8080",
+#                         "https://localhost:8080",
+#                         "https://192.168.80.13:8080",
+#                         "https://181.59.2.191:8080"]
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
